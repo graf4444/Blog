@@ -1,0 +1,32 @@
+{% extends "core/base.html" %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+    <p>
+        Категории<hr>
+        {% for x in latest_categories_list %}
+            {{ x }} <hr>
+        {% endfor %}
+    </p>
+
+    </br></br>
+
+    <p>
+        Последние вопросы<hr>
+        {% for x in latest_questions_list %}
+            {{ x.autor }} {{ x.pub_date }} <a href="/question/{{ x.id }}">{{ x.question_text }}</a><hr>
+        {% endfor %}
+    </p>
+
+    </br></br>
+
+    <p>
+        Последние ответы<hr>
+        {% for x in latest_answers_list %}
+            {{ x.autor }} {{ x.date_create}}</br>
+            {{ x.text }}<hr>
+        {% endfor %}
+    </p>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "core/base.html" %}
+
+{% block title %}Создание ответа{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <form method="POST">
+        {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit">
+        </form>
+    {% else %}
+        Чтобы ответить, вначале войдите в систему!
+    {% endif%}
+{% endblock %}

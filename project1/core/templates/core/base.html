@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <a href="{% url 'core:home' %}">На главную</a>
+    <a href="{% url 'core:question:question_list' %}">Все вопросы</a>
+    <a href="{% url 'core:question:question_create'%}">Создать вопрос</a>
+
+    {% if user.is_authenticated %}
+
+    {{ user }} <a href={% url 'core:logout' %}>Выйти</a>
+
+    {% else %}
+        <a href={% url 'core:login' %}>Войти</a>
+    {% endif %}    
+
+    <div>
+        {% block content %}{% endblock %}
+    </div>
+
+</body>
+
+</html>

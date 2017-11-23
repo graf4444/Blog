@@ -1,0 +1,18 @@
+{% extends "core/base.html" %}
+
+{% block title %}Список всех вопросов{% endblock %}
+
+{% block content %}
+
+    <form action="" method="GET">
+        Поиск: 
+        {{ form.search }}
+        Сортировать по: 
+        {{ form.sort_field }}
+        <input type="submit">
+    </form>
+
+    {% for x in question_list %}
+        {{ x.autor }} {{ x.pub_date }} <a href="/question/{{ x.id }}">{{ x.question_text }}</a> {{ x.category }}</br>
+    {% endfor %}
+{% endblock %}

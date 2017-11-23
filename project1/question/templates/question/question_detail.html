@@ -1,0 +1,18 @@
+{% extends "core/base.html" %}
+
+{% block title%}Вопрос №{{ question.id }}{% endblock %}
+
+{% block content%}
+    Вопрос</br>
+    {{ question.category }}
+    {{ question.pub_date }}
+    {{ question.autor }}</br></br>
+    {{ question.question_text }}</br></br>
+    
+    Ответы</br>
+    {% for x in question.answers.all %}
+        {{ x }}<hr>
+    {% endfor %}
+
+    <a href={% url 'core:answer:create' question.pk %}>Ответить</a>
+{% endblock %}

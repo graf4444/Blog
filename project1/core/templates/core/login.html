@@ -1,0 +1,15 @@
+{% extends "core/base.html" %}
+
+{% block title %}Войти на сайт{% endblock %}
+
+{% block content%}
+    {% if user.is_authenticated %}
+        Вы уже в системе!
+    {% else %}
+    <form method="POST"">
+    {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit">
+    </form> 
+    {% endif %}
+{% endblock %}
