@@ -118,9 +118,9 @@ USE_L10N = True
 USE_TZ = True
 
 
-LOGIN_REDIRECT_URL = "core:home"
+#LOGIN_REDIRECT_URL = "core:home"
 LOGIN_URL = "core:login"
-LOGOUT_REDIRECT_URL = "core:home"
+#LOGOUT_REDIRECT_URL = "core:home"
 LOGOUT_URL = "core:login"
 
 # Static files (CSS, JavaScript, Images)
