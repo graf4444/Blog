@@ -10,9 +10,15 @@
     {{ question.question_text }}</br></br>
     
     Ответы</br>
-    {% for x in question.answers.all %}
-        {{ x }}<hr>
-    {% endfor %}
+    <div id="answers">
+    </div>
 
     <a href={% url 'core:answer:create' question.pk %}>Ответить</a>
+
+    <script>
+        function load_answers() {
+            $('#answers').load('{% url "core:question:question_answers" pk=question.pk %}');
+        }
+        window.setInterval(load_answers, 1000)
+    </script>
 {% endblock %}

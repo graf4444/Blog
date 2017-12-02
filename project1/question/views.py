@@ -26,6 +26,11 @@ class QuestionList(ListView):
         context['form'] = self.form
         return context
 
+class QuestionDetailAjax(DetailView):
+    template_name = "question/question_detail_ajax.html"
+    model = Question
+    context_object_name = "question"
+
 class QuestionDetail(DetailView):
     model = Question
     template_name = 'question/question_detail.html'

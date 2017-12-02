@@ -13,6 +13,8 @@
     </form>
 
     {% for x in question_list %}
-        {{ x.autor }} {{ x.pub_date }} <a href="/question/{{ x.id }}">{{ x.question_text }}</a> {{ x.category }}</br>
+        <div class="question">
+            {{ x.autor }} {{ x.pub_date }} <a href="/question/{{ x.id }}">{{ x.question_text }}</a> {{ x.category }}>
+        </div>
     {% endfor %}
 {% endblock %}
